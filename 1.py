@@ -1,7 +1,6 @@
 import csv
 
 file = open("Book1.csv")
-file = open("test.csv")
 
 reader = csv.reader(file)
 
@@ -16,34 +15,8 @@ for row in reader:
     else:
         elves[elf] += int(row[0])
 
-max = 0
-maxElf = 0
-for elf in range(len(elves)):
-    if elves[elf] > max:
-        max = elves[elf]
-        maxElf = elf
-maxElf1 = max
-elves.remove(maxElf1)
+elves.sort()
+elves.reverse()
 
-max = 0
-maxElf = 0
-for elf in range(len(elves)):
-    if elves[elf] > max:
-        max = elves[elf]
-        maxElf = elf
-maxElf2 = max
-elves.remove(maxElf2)
-
-max = 0
-maxElf = 0
-for elf in range(len(elves)):
-    if elves[elf] > max:
-        max = elves[elf]
-        maxElf = elf
-maxElf3 = max
-elves.remove(maxElf3)
-
-print(maxElf1)
-print(maxElf2)
-print(maxElf3)
-print(maxElf1 + maxElf2 + maxElf3)
+print("Highest single elf: " + str(elves[0]))
+print("Highest 3 elves: " + str(sum(elves[0:3])))
